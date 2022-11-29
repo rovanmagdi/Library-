@@ -12,3 +12,6 @@ export const StyledLinkNavbar = styled(Link)(({ theme }) => ({
   },
   diplay: "inline-block",
 }));
+
+
+

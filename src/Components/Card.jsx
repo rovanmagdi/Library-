@@ -1,152 +1,132 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
 
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { FormControl,  OutlinedInput, InputAdornment} from "@mui/material";
-import { StyledBoxSearch } from "../Styled/Box";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+
 
 import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import Rating from "@mui/material/Rating";
-import { StyledCardBook } from "../Styled/Card";
+import { StyledCardActions, StyledCardBook } from "../Styled/Card";
 // import axios from "axios";
 // import { useNavigate } from "react-router";
 
 import axios from "axios";
+import { StyledTypographyCard } from "../Styled/Typography";
 
+import PaginationComponent from "./Pagination";
+import CircularIndeterminate from "./Loading";
+import FormSearch from "./FormSearch";
 
-
-export default function MediaCard({}) {
+export default function MediaCard() {
   //   const navigate = useNavigate();
   //   const handleClick = (id) => {
   //     console.log("click :", id);
   //     navigate(`/${id}`);
   //   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [values, setValues] = React.useState({
-    word: "",
-  });
-  const [valueSearch, setValueSearch] = React.useState("");
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [booksPerPage] = useState(10);
+  
 
-  const handleChangeTxt = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-  const BASE_URL = "https://example-data.draftbit.com/books";
-  const handleClickDropDown = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  //Fetch data from Api with axios
+  useEffect(() => {
+    const fetchBooks = async () => {
+      setLoading(true);
+      const res = await axios.get(process.env.REACT_APP_CLIENT_SIDE);
+      setBooks(res.data);
+      setLoading(false);
+    };
 
-  // let obj = { id, imageBase, author, imageAuthor, title, rating };
-  //  const abc= [...inputArr,[]];
-  //  setInputArr(abc)
-
-  const [books, setBooks] = React.useState([]);
-  const [filterBooks, setFilterBooks] = React.useState([]);
-
-  React.useEffect(() => {
-    axios.get(`${BASE_URL}`).then((response) => {
-      setBooks(response.data);
-    });
+    fetchBooks();
   }, []);
-  React.useEffect(() => {
-    console.log(books);
-    setFilterBooks(books.slice(0, 50));
-  }, [books]);
+
+  // Pagination
+  const indexOfLastBook = currentPage * booksPerPage;
+  const indexOfFirstBook = indexOfLastBook - booksPerPage;
+  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
 
   return (
     <>
-     <FormControl
-                    sx={{ m: 1, width: "40ch", backgroundColor: "white" }}
-                    variant="outlined"
-                  >
-                    <OutlinedInput
-                      id="outlined-adornment-weight"
-                      value={values.word}
-                      onChange={handleChangeTxt("word")}
-                      endAdornment={
-                        <InputAdornment
-                          position="end"
-                          // onClick={() => search(values.word)}
-                          sx={{ cursor: "pointer" }}
-                        >
-                          <StyledBoxSearch>
-                            <SearchOutlinedIcon />
-                          </StyledBoxSearch>
-                        </InputAdornment>
-                      }
-                      aria-describedby="outlined-weight-helper-text"
-                      inputProps={{
-                        "aria-label": "weight",
-                      }}
-                      placeholder="Search here"
-                    />
-                  </FormControl>
-    <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-around"}}>
-      {filterBooks.map((book,index) => (
-        <StyledCardBook key={index}>
-          <CardHeader
-            sx={{ position: "absolute", right: "0", margin: "20px" }}
-          />
+     <FormSearch/>
+      {!loading ? (
+        <>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-around",
+            }}
+          >
+            {currentBooks.map((book, index) => (
+              <StyledCardBook key={index}>
+                <CardHeader
+                  sx={{ position: "absolute", right: "0", margin: "20px" }}
+                />
 
-          <Box component="div">
-            <CardMedia
-              
-              sx={{
-                width:"100%",
-                height:"300px",
-                objectFit:"contain",
-                borderRadius: "100px",
-              }}
-              component="img"
-              image={book.image_url}
-              alt="Paella dish"
-            />
-            <CardContent>
-              <Grid
-                container
-                item
-                xs={12}
-                sx={{ alignItems: "center", marginBottom: "15px" }}
-              >
-    
-                <Grid item xs={9}>
-                  <Typography variant="body2" sx={{ fontSize: "1rem" }}>
-                   {book.authors}
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Typography
-                variant="body2"
-                sx={{ fontWeight: "bold", fontSize: "1.1rem" }}
-              >
-                {book.title}
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="share">
-                {/* <StarIcon sx={{ color: "#ffba00" }} />
-                 */}
-                {/* <Rating
-              name="simple-controlled"
-              value={Number(rating)}
-              onChange={(event) => {
-                handleChange(event.target.value, id);
-              }}
-            /> */}
-              </IconButton>
-            </CardActions>
+                <Box component="div">
+                  <CardMedia
+                    sx={{
+                      width: "100%",
+                      height: "300px",
+                      objectFit: "contain",
+                    }}
+                    component="img"
+                    image={book.image_url}
+                    alt="Paella dish"
+                  />
+                  <CardContent>
+                    <Grid
+                      container
+                      item
+                      xs={12}
+                      sx={{ alignItems: "center", marginBottom: "15px" }}
+                    >
+                      <Grid item xs={9}>
+                        <Typography variant="body2" sx={{ fontSize: "1rem" }}>
+                          {book.authors}
+                        </Typography>
+                      </Grid>
+                    </Grid>
+
+                    <StyledTypographyCard variant="body2">
+                      {book.title}
+                    </StyledTypographyCard>
+                  </CardContent>
+                  <StyledCardActions disableSpacing>
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      {book.rating}
+                    </Typography>
+
+                    <IconButton aria-label="share">
+                      <Rating
+                        name="simple-controlled"
+                        value={Number(book.rating)}
+                      />
+                    </IconButton>
+                  </StyledCardActions>
+                </Box>
+              </StyledCardBook>
+            ))}
           </Box>
-        </StyledCardBook>
-      ))}
-    </Box></>
+          <PaginationComponent
+            booksPerPage={booksPerPage}
+            totalbooks={books.length}
+            paginate={paginate}
+          />
+        </>
+      ) : (
+        <><CircularIndeterminate/></>
+      )}
+    </>
   );
 }
