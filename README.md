@@ -11,7 +11,7 @@ Description for my project which is an Books liberary.
   - Contact
 ## About the project
 
-My project is about a Book Liberary which targets people that interested in reading, There ara alot of books in website are amazing ,the reader can add favorite books for read it later.
+My project is about a Books Liberary which targets people that interested in reading, There ara alot of books in website are amazing ,the reader can add favorite books for read it later.
 
 ## Build with 
 
