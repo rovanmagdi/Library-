@@ -1,38 +1,45 @@
 import { Button, Grid, Stack, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState,useEffect} from "react";
 import { StyledGridFavorite } from "../Styled/Grid";
 import { StyledTypographyCart } from "../Styled/Typography";
 import emptyFavorite from "../assets/empty-cart.svg";
 import { StyledButtonHome } from "../Styled/Button";
 import { useNavigate } from "react-router";
-function FavoriteComponent(props) {
-  const [favorite, setFavorite] = useState([]);
 
+//Importing from utils 
+import { toastError } from "../utils/Toast";
+import { ToastContainer } from "react-toastify";
+
+function FavoriteComponent() {
+  
+  const [favorite, setFavorite] = useState([]);
+  const nagivate = useNavigate();
+
+  // Take favorite list from localStorage
   useEffect(() => {
     setFavorite(JSON.parse(localStorage.getItem("Favourite")) || []);
   }, []);
 
-
+  //Function to delete item from Favorite list
   const handleDelete = (id) => {
     if (window.confirm("Are you sure to Delete Item ?")) {
       const filterFavorite = setFavorite(favorite.filter((u) => u.id !== id));
       localStorage.setItem("Favourite", JSON.stringify(filterFavorite));
+      toastError(`Delete Book from Favorites`);
       if (localStorage.getItem("Favourite") === "undefined") {
         localStorage.setItem("Favourite", JSON.stringify([]));
       }
     }
   };
 
-  const nagivate=useNavigate();
+  //Handle button go to home again 
   const handleGoToHome = () => {
-   
-    nagivate('/Home');
+    nagivate("/Home");
   };
   return (
     <Container>
+      <ToastContainer />
       {favorite?.length ? (
         favorite.map((item, index) => {
           return (

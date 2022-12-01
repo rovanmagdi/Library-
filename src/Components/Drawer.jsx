@@ -1,21 +1,25 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import React, { useState } from "react";
+import {
+  Box,
+  Drawer,
+  Button,
+  List,
+  Divider,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from "../assets/logo.webp";
 import { useNavigate } from "react-router";
+import logo from "../assets/logo.webp";
 
 export default function TemporaryDrawer({ anchor }) {
-  const [state, setState] = React.useState({
+  const nagivate = useNavigate();
+  const [state, setState] = useState({
     left: false,
   });
 
+  //Function to close Drawer
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -26,7 +30,6 @@ export default function TemporaryDrawer({ anchor }) {
 
     setState({ ...state, [anchor]: open });
   };
-  const nagivate = useNavigate();
   const handleLink = (page) => {
     nagivate(`/${page}`);
   };

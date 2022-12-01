@@ -12,9 +12,11 @@ import axios from "axios";
 import { StyledTypographyCard, StyledTypographySpan } from "../Styled/Typography";
 import CircularIndeterminate from "./Loading";
 import { useNavigate } from "react-router";
+import { toastError } from "../utils/Toast";
 
 export default function CardHome() {
 
+  // setting  state
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sliceBook, setSliceBook] = useState([]);
@@ -22,19 +24,23 @@ export default function CardHome() {
 
   //Fetch data from Api with axios
   useEffect(() => {
-    const fetchBooks = async () => {
-      setLoading(true);
-      const res = await axios.get(process.env.REACT_APP_CLIENT_SIDE);
-      setBooks(res.data);
-      setLoading(false);
-    };
+    // use env(enviorment varaibles) for URL is general
+    axios
+      .get(process.env.REACT_APP_CLIENT_SIDE)
+      .then((data) => {
+        setBooks(data.data);
+        setLoading(false);
 
-    fetchBooks();
+      })
+      .catch((err) => {
+        toastError(err);
+      });
+
   }, []);
 
   // slice 4 books 
   useEffect(() => {
-    setSliceBook(books.splice(0,4));
+    setSliceBook(books.splice(0, 4));
   }, [books]);
 
   //nagivate
@@ -46,23 +52,23 @@ export default function CardHome() {
 
   return (
     <Container>
-    
+
       {!loading ? (
         <>
-        <Typography
-          sx={{
-            paddingLeft: "30px",
-            fontSize: "2rem",
-            fontWeight: "600",
-            margin: "20px",
-          }}
-        >
-          All{" "}
-          <StyledTypographySpan variant="span" component="span">
-            Books
-          </StyledTypographySpan>{" "}
-          of Edule
-        </Typography>
+          <Typography
+            sx={{
+              paddingLeft: "30px",
+              fontSize: "2rem",
+              fontWeight: "600",
+              margin: "20px",
+            }}
+          >
+            All{" "}
+            <StyledTypographySpan variant="span" component="span">
+              Books
+            </StyledTypographySpan>{" "}
+            of Edule
+          </Typography>
           <Box
             sx={{
               display: "flex",
@@ -127,7 +133,7 @@ export default function CardHome() {
               </StyledCardBook>
             ))}
           </Box>
-         
+
         </>
       ) : (
         <>

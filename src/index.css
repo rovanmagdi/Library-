@@ -8,3 +8,19 @@ body{
   position: relative;
 
 }
+html::-webkit-scrollbar {
+  width: 0.8rem; 
+  /* 16px*0.6 */
+  
+}
+
+/* background of scroll bar*/
+html::-webkit-scrollbar-track {
+  background: #eefbf3;
+}
+
+/* color of scroll bar*/
+html::-webkit-scrollbar-thumb {
+  background: #198754;
+  border-radius: 5rem;
+}

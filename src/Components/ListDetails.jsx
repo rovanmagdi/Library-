@@ -1,6 +1,6 @@
 import { Divider, Grid, List, Typography } from '@mui/material';
 import React from 'react';
-import { StyledListDetailsCourse } from '../Styled/Box';
+import { StyledListDetailsBook } from '../Styled/Box';
 
 function ListDetails({icon,nickName,name}) {
     return (
@@ -12,10 +12,10 @@ function ListDetails({icon,nickName,name}) {
             >
               <Grid container item xs={12} sx={{alignItems:"center"}}>
                 <Grid item xs={1} sx={{paddingRight:"5px"}}>
-                    <StyledListDetailsCourse component="span" >
+                    <StyledListDetailsBook component="span" >
                         {icon}
                
-                    </StyledListDetailsCourse>
+                    </StyledListDetailsBook>
                 </Grid>
                 <Grid item xs={6}>
                   <Typography variant="body2" component="span">

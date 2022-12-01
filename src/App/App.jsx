@@ -8,13 +8,13 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "../Pages/NotFound";
 import Favorite from "../Pages/Favorite";
 import Footer from "../Components/Footer";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Box } from "@mui/material";
 
 function App() {
   return (
-    <>
       <ThemeProvider theme={theme}>
-        <Router>
+    <Box sx={{display:"flex",flexDirection:"column",justifyContent:'space-between'}}>
+       
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -25,9 +25,9 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
-        </Router>
+       
+    </Box>
       </ThemeProvider>
-    </>
   );
 }
 

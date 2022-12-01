@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import IconButton from "@mui/material/IconButton";
@@ -18,6 +17,7 @@ import CircularIndeterminate from "./Loading";
 import { useNavigate } from "react-router";
 
 export default function MediaCard() {
+  
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -73,6 +73,7 @@ export default function MediaCard() {
             sx={{
               display: "flex",
               flexWrap: "wrap",
+              flex:0,
               justifyContent: "space-around",
             }}
           >
@@ -113,7 +114,7 @@ export default function MediaCard() {
                       {book.title}
                     </StyledTypographyCard>
                   </CardContent>
-                  <StyledCardActions disableSpacing>
+                  <StyledCardActions disableSpacing sx={{width:"100%"}}>
                     <Typography sx={{ fontWeight: "bold" }}>
                       {book.rating}
                     </Typography>

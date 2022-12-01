@@ -18,6 +18,8 @@ import ListDetails from "../Components/ListDetails";
 import { StyledButtonDetails } from "../Styled/Button";
 import CircularIndeterminate from "./Loading";
 import Carousel from "react-material-ui-carousel";
+import { toastSuccess } from "../utils/Toast";
+import { ToastContainer } from "react-toastify";
 const DetailsComponent = () => {
   // use useState to take one book
   const [book, setBook] = useState({});
@@ -42,9 +44,11 @@ const DetailsComponent = () => {
 
   // Function to add to array of favorites
   const arr = JSON.parse(localStorage.getItem("Favourite")) || [];
+
   const handleAddToFav = () => {
     const index = arr.findIndex((object) => object.id === book.id);
 
+    toastSuccess(`Add ${book.title} to Favorite `);
     // To not Duplicted
     if (index === -1) {
       arr.push(book);
@@ -57,6 +61,7 @@ const DetailsComponent = () => {
 
   return (
     <Container>
+      <ToastContainer />
       {loading ? (
         <>
           {matches ? (
@@ -181,16 +186,16 @@ const DetailsComponent = () => {
                 {book.description.replaceAll(",", "\n")}
               </Box>
               <Typography
-                  variant="body2"
-                  component="h1"
-                  sx={{
-                    fontSize: "1.7rem",
-                    fontWeight: "600",
-                    margin: "20px 0px 20px 0px",
-                  }}
-                >
-                  Quotes
-                </Typography>
+                variant="body2"
+                component="h1"
+                sx={{
+                  fontSize: "1.7rem",
+                  fontWeight: "600",
+                  margin: "20px 0px 20px 0px",
+                }}
+              >
+                Quotes
+              </Typography>
               <Carousel
                 indicatorIconButtonProps={{
                   style: {
@@ -323,16 +328,16 @@ const DetailsComponent = () => {
                 {book.description.replaceAll(",", "\n")}
               </Box>
               <Typography
-                  variant="body2"
-                  component="h1"
-                  sx={{
-                    fontSize: "1.7rem",
-                    fontWeight: "600",
-                    margin: "20px 0px 20px 0px",
-                  }}
-                >
-                  Quotes
-                </Typography>
+                variant="body2"
+                component="h1"
+                sx={{
+                  fontSize: "1.7rem",
+                  fontWeight: "600",
+                  margin: "20px 0px 20px 0px",
+                }}
+              >
+                Quotes
+              </Typography>
               <Carousel
                 indicatorIconButtonProps={{
                   style: {
@@ -356,7 +361,7 @@ const DetailsComponent = () => {
         </>
       ) : (
         <>
-          <CircularIndeterminate />
+          <CircularIndeterminate/>
         </>
       )}
     </Container>

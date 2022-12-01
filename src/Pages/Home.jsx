@@ -1,6 +1,5 @@
-import { Typography } from "@mui/material";
+
 import { Stack } from "@mui/system";
-import React from "react";
 import { useNavigate } from "react-router";
 import CardHome from "../Components/CardHome";
 import PagesCover from "../Components/PageCover";
@@ -14,7 +13,6 @@ const Home = () => {
   return (
     <>
       <PagesCover Word="Home" />
-
       <CardHome />
       <Stack alignItems="center">
         <StyledButtonHome onClick={handleGoToBooks}>More Books</StyledButtonHome>

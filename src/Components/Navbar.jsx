@@ -1,25 +1,42 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import Box from "@mui/material/Box";
-import { StyledNavbar, StyledNavbarResponsive } from "../Styled/Grid";
-import logo from '../assets/logo.webp'
 import { Grid, Link, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { StyledNavbar, StyledNavbarResponsive } from "../Styled/Grid";
+import logo from '../assets/logo.webp'
 import TemporaryDrawer from "./Drawer";
 import { StyledLinkNavbar } from "../Styled/Link";
-import { useNavigate } from "react-router";
 
-const pages = ["Home", "Books", "Favorite"];
+
 
 const Navbar = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("976"));
-  const [navColor, setnavColor] = React.useState("transparent");
-  const [navPosition, setnavPosition] = React.useState("absolute");
-  const [navTop, setnavTop] = React.useState("40");
-  const [navBorder, setnavBorder] = React.useState("rgba(48,146,85,0.25)");
 
+  //use useNavigate for routing
   const navigate = useNavigate();
+
+  // Use useSatet to use state for link active
+  const [activeLink, setActiveLink] = useState("Home");
+
+  // Links in Navbar 
+  const pages = ["Home", "Books", "Favorite"];
+
+  // Change backgroundcolor for Navbar 
+  const [navColor, setnavColor] = useState("transparent");
+
+  // Change position for Navbar 
+  const [navPosition, setnavPosition] = useState("absolute");
+
+  // Change top for Navbar 
+  const [navTop, setnavTop] = useState("40");
+
+  // Change top for border 
+  const [navBorder, setnavBorder] = useState("rgba(48,146,85,0.25)");
+
+  // Function whrn scroll for Navbar
   const listenScrollEvent = () => {
     window.scrollY > 80 ? setnavColor("#ffff") : setnavColor("transparent");
     window.scrollY > 80 ? setnavPosition("fixed") : setnavPosition("absolute");
@@ -28,22 +45,22 @@ const Navbar = () => {
       ? setnavBorder("transparent")
       : setnavBorder("rgba(48,146,85,0.25)");
   };
-  
+
+  // Links for different pages
   function handleLinks(page) {
     navigate(`/${page}`);
     console.log(page);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
     return () => {
       window.removeEventListener("scroll", listenScrollEvent);
     };
   }, []);
 
-  const [activeButton, setActiveButton] = React.useState("Home");
   const clickedButtonHandler = (name) => {
-    setActiveButton(name);
+    setActiveLink(name);
   };
   return (
     <Grid
@@ -84,14 +101,13 @@ const Navbar = () => {
                         clickedButtonHandler(page);
                       }}
                       sx={{
-                        color: `${
-                          activeButton === page ? "#198754" : "black"
-                        } `,
+                        color: `${activeLink === page ? "#198754" : "black"
+                          } `,
                       }}
                     >
                       {page}
                     </StyledLinkNavbar>
-                 
+
                   </Box>
                 ))}
               </Grid>

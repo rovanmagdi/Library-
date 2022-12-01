@@ -65,13 +65,6 @@ export const CoverTxtBox = styled(Box)(({ theme }) => ({
 }));
 
 
-//Courses
-export const StyledBoxSearch = styled(Box)(({ theme }) => ({
-  backgroundColor: `${theme.palette.primary.main}`,
-  padding: "8px",
-  borderRadius: "5px",
-  color: `${theme.palette.secondary.light}`,
-}));
 
 
 
@@ -98,14 +91,11 @@ export const StyledBoxNotFound = styled(Box)(({ theme }) => ({
     transform: " translateY(300%)",
   },
 }));
+
 ///List Details Courses
 
-export const StyledListDetailsCourse = styled(Box)(({ theme }) => ({
+export const StyledListDetailsBook = styled(Box)(({ theme }) => ({
   color: `${theme.palette.primary.main}`,
 }));
 
-export const StyledcourseInstructor = styled(Box)(({ theme }) => ({
-  borderRadius: "50%",
-  border:`3px solid ${theme.palette.primary.light}`,
-  padding: "10px",
-}));
+

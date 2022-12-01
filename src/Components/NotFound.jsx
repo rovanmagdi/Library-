@@ -10,10 +10,17 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { StyledBoxNotFound } from "../Styled/Box";
 import errorImage from '../assets/error.webp'
+import { useNavigate } from "react-router";
 
 const NotFoundComponent = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("976"));
+  const nagivate=useNavigate();
+  const handleGoToHome=()=>
+  {
+    nagivate('/Home')
+  }
+
   return (
     <Container>
       {matches ? (
@@ -48,7 +55,7 @@ const NotFoundComponent = () => {
                 It has survived not only five centuries but also the leap into
                 electronic typesetting.
               </Typography>
-              <StyledButtonNotFound sx={{ fontWeight: "100" }}>
+              <StyledButtonNotFound sx={{ fontWeight: "100" }}onClick={handleGoToHome}>
                 Back to Home
               </StyledButtonNotFound>
             </Grid>
@@ -90,7 +97,7 @@ const NotFoundComponent = () => {
                 It has survived not only five centuries but also the leap into
                 electronic typesetting.
               </Typography>
-              <StyledButtonNotFound sx={{ fontWeight: "100" }}>
+              <StyledButtonNotFound sx={{ fontWeight: "100" }} onClick={handleGoToHome}>
                 Back to Home
               </StyledButtonNotFound>
             </Grid>
