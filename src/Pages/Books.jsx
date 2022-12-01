@@ -7,7 +7,7 @@ const Books = () => {
 
   return (
     <>
-      <PagesCover />
+      <PagesCover firstWord="All" secondWord="Books" />
       <Card/>
     </>
   );

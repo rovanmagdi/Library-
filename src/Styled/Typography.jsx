@@ -116,9 +116,14 @@ export const StyledTypographyCard = styled(Typography)(({ theme }) => ({
   fontWeight: "bold",
   fontSize: "1.1rem",
   overflow: "hidden",
+  height: "40px",
   textOverflow: "ellipsis",
   lineHeight: "1.2",
-  display: "_webkit_box",
-  "_webkit_line_clamp": "2",
+  "_webkit_line_clamp": "1.5",
   " _webkit_box_orient": "vertical",
+  display: "_webkit_box",
+}));
+
+export const StyledTypographySpan= styled(Typography)(({ theme }) => ({
+  color:`${theme.palette.primary.main}`
 }));

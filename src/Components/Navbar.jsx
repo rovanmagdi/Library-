@@ -1,16 +1,14 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-
 import { StyledNavbar, StyledNavbarResponsive } from "../Styled/Grid";
-
-// import { StyledButton } from "../styled/Button";
 import { Grid, Link, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import TemporaryDrawer from "./Drawer";
 import { StyledLinkNavbar } from "../Styled/Link";
+import { useNavigate } from "react-router";
 
-const pages = ["Home", "All Books", "Favorite"];
+const pages = ["Home", "Books", "Favorite"];
 
 const Navbar = () => {
   const theme = useTheme();
@@ -19,9 +17,8 @@ const Navbar = () => {
   const [navPosition, setnavPosition] = React.useState("absolute");
   const [navTop, setnavTop] = React.useState("40");
   const [navBorder, setnavBorder] = React.useState("rgba(48,146,85,0.25)");
-  // const currentUserStorage = JSON.parse(localStorage.getItem("user"));
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const listenScrollEvent = () => {
     window.scrollY > 80 ? setnavColor("#ffff") : setnavColor("transparent");
     window.scrollY > 80 ? setnavPosition("fixed") : setnavPosition("absolute");
@@ -30,14 +27,9 @@ const Navbar = () => {
       ? setnavBorder("transparent")
       : setnavBorder("rgba(48,146,85,0.25)");
   };
-  // function handleSignUp() {
-  //   navigate("/signup");
-  // }
-  // function handleSignIn() {
-  //   navigate("/login");
-  // }
+  
   function handleLinks(page) {
-    // navigate(`/${page}`);
+    navigate(`/${page}`);
     console.log(page);
   }
 
@@ -98,13 +90,7 @@ const Navbar = () => {
                     >
                       {page}
                     </StyledLinkNavbar>
-                    {/* {activeButton === page && (
-                        <Box
-                          component="span"
-                          src="https://htmldemo.net/edule/eduLe/assets/images/shape/shape-3.png"
-                          sx={{height:"100px",width:"100px",backgroundColor:"red"}}
-                        />
-                      )} */}
+                 
                   </Box>
                 ))}
               </Grid>

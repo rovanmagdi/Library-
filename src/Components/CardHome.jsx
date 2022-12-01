@@ -10,18 +10,23 @@ import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import Rating from "@mui/material/Rating";
 import { StyledCardActions, StyledCardBook } from "../Styled/Card";
+// import axios from "axios";
+// import { useNavigate } from "react-router";
+
 import axios from "axios";
-import { StyledTypographyCard } from "../Styled/Typography";
+import { StyledTypographyCard, StyledTypographySpan } from "../Styled/Typography";
+
 import PaginationComponent from "./Pagination";
 import CircularIndeterminate from "./Loading";
 import FormSearch from "./FormSearch";
 import { useNavigate } from "react-router";
 
-export default function MediaCard() {
+export default function CardHome() {
+
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [booksPerPage] = useState(10);
+  const [sliceBook, setSliceBook] = useState([]);
+
 
   //Fetch data from Api with axios
   useEffect(() => {
@@ -34,14 +39,9 @@ export default function MediaCard() {
 
     fetchBooks();
   }, []);
-
-  // Pagination
-  const indexOfLastBook = currentPage * booksPerPage;
-  const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
-
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  useEffect(() => {
+    setSliceBook(books.splice(0,4));
+  }, [books]);
 
   //nagivate
 
@@ -49,14 +49,27 @@ export default function MediaCard() {
   const handleDetails = (id) => {
     console.log(id);
     nagivate(`/${id}`);
-    
   };
 
   return (
     <Container>
-      <FormSearch />
+    
       {!loading ? (
         <>
+        <Typography
+          sx={{
+            paddingLeft: "30px",
+            fontSize: "2rem",
+            fontWeight: "600",
+            margin: "20px",
+          }}
+        >
+          All{" "}
+          <StyledTypographySpan variant="span" component="span">
+            Books
+          </StyledTypographySpan>{" "}
+          of Edule
+        </Typography>
           <Box
             sx={{
               display: "flex",
@@ -64,7 +77,7 @@ export default function MediaCard() {
               justifyContent: "space-around",
             }}
           >
-            {currentBooks.map((book, index) => (
+            {sliceBook.map((book, index) => (
               <StyledCardBook
                 key={index}
                 onClick={() => handleDetails(book.id)}
@@ -121,11 +134,7 @@ export default function MediaCard() {
               </StyledCardBook>
             ))}
           </Box>
-          <PaginationComponent
-            booksPerPage={booksPerPage}
-            totalbooks={books.length}
-            paginate={paginate}
-          />
+         
         </>
       ) : (
         <>

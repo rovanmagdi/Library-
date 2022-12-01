@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Box, Avatar, Typography } from "@mui/material";
+import React from "react";
+import { Box, Avatar } from "@mui/material";
 import {
   StyledPageCover,
   StyledCircularBorder,
@@ -8,7 +8,6 @@ import {
 } from "../Styled/Box";
 import {
   StyledPageTitle,
-  StyledBlackTxt,
   StyledGreenTxt,
 } from "../Styled/Typography";
 import { Container } from "@mui/system";
@@ -22,10 +21,7 @@ import DottedShape from "../assets/shape-8.webp";
 import TxtUnderline from "../assets/shape-6.webp";
 
 export default function PagesCover(props) {
-  let [page, pageState] = useState("");
-  useEffect(() => {
-    pageState(window.location.href.split("/")[3].replace(/%20/g, " "));
-  }, []);
+ 
   return (
     <>
       <StyledPageCover>
@@ -128,21 +124,11 @@ export default function PagesCover(props) {
         <Container>
           <CoverTxtBox>
             <Box sx={{ position: "relative" }}>
-              <Typography sx={{ fontSize: "typography.caption.textSize" }}>
-                {" "}
-                <StyledBlackTxt component={"span"} variant={"body2"}>
-                  Home //{" "}
-                </StyledBlackTxt>{" "}
-                <StyledGreenTxt component={"span"} variant={"body2"}>
-                  {page}
-                </StyledGreenTxt>
-              </Typography>
+             
               <StyledPageTitle>
-                <StyledBlackTxt component={"span"} variant={"body2"}>
-                  {props.firstWord}
-                </StyledBlackTxt>{" "}
+               
                 <StyledGreenTxt component={"span"} variant={"body2"}>
-                  {props.secondWord}
+                  {props.Word}
                 </StyledGreenTxt>
               </StyledPageTitle>
               <Box

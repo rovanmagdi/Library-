@@ -14,28 +14,17 @@ export const StyledNavbarResponsive = styled(Grid)(({ theme }) => ({
   borderRadius: "10px",
   fontSize: "20px",
 }));
-//Courses
-export const StyledNavCourses = styled(Grid)(({ theme }) => ({
-  backgroundColor: `${theme.palette.primary.light}`,
-  padding: "40px",
-  marginTop: "50px",
-  borderRadius: "15px",
-}));
 
-//Details Course
+//Details Book
 export const StyledGridDetails = styled(Grid)(({ theme }) => ({
   backgroundColor: `${theme.palette.primary.light}`,
   color: `${theme.palette.secondary.main}`,
   borderRadius: "20px",
 }));
-export const StyledNavDetailsCourses = styled(Grid)(({ theme }) => ({
-  backgroundColor: `${theme.palette.primary.light}`,
-  padding: "15px",
-  marginTop: "20px",
-  borderRadius: "15px",
-}));
-//Cart
-export const StyledGridCart = styled(Grid)(({ theme }) => ({
+
+
+
+export const StyledGridFavorite = styled(Grid)(({ theme }) => ({
   border: `3px solid ${theme.palette.primary.light}`,
   alignItems: "center",
   marginTop: "20px",
