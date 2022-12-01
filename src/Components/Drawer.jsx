@@ -8,14 +8,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Typography } from "@mui/material";
-// import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-// import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-// import { StyledButtonDrawar } from "../styled/Button";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-// import ComponentContactSmall from "./componentContactSmall";
+import logo from "../assets/logo.webp";
+import { useNavigate } from "react-router";
 
 export default function TemporaryDrawer({ anchor }) {
   const [state, setState] = React.useState({
@@ -32,6 +26,10 @@ export default function TemporaryDrawer({ anchor }) {
 
     setState({ ...state, [anchor]: open });
   };
+  const nagivate = useNavigate();
+  const handleLink = (page) => {
+    nagivate(`/${page}`);
+  };
 
   const list = (anchor) => (
     <Box
@@ -40,58 +38,33 @@ export default function TemporaryDrawer({ anchor }) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      {/* <ComponentContactSmall
-        contact={"(970) 262-1413"}
-        icon={<LocalPhoneOutlinedIcon />}
-      />
-
-      <ComponentContactSmall
-        contact={"  address@gmail.com"}
-        icon={<EmailOutlinedIcon />}
-      /> */}
-
       <Box
+        component="img"
+        src={logo}
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "20px",
+          margin: "20px",
         }}
-      >
-        {/* <StyledButtonDrawar>Sign in </StyledButtonDrawar>
-        <StyledButtonDrawar>Sign out </StyledButtonDrawar> */}
-      </Box>
+      ></Box>
       <List>
         <Divider />
       </List>
       <List>
-        {["Home", "All Books", "Favorite"].map(
-          (text, index) => (
-            <Box key={index}>
-              <ListItem  disablePadding>
-                <ListItemButton sx={{ height: "23px" }}>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-              <List>
-                <Divider />
-              </List>
-            </Box>
-          )
-        )}
+        {["Home", "Books", "Favorite"].map((text, index) => (
+          <Box key={index}>
+            <ListItem disablePadding>
+              <ListItemButton sx={{ height: "23px" }}>
+                <ListItemText primary={text} onClick={() => handleLink(text)} />
+              </ListItemButton>
+            </ListItem>
+            <List>
+              <Divider />
+            </List>
+          </Box>
+        ))}
       </List>
-      <Typography
-      component={'div'} variant={'body2'}
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-      >
-        <FacebookIcon
-          sx={{ color: "#262626", height: "20px", padding: "15px" }}
-        />
-        <TwitterIcon sx={{ color: "#262626", height: "20px" }} />
-        <InstagramIcon
-          sx={{ color: "#262626", height: "20px", padding: "15px" }}
-        />
-      </Typography>
     </Box>
   );
 

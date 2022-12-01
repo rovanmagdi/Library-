@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid, Stack, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import { useState } from "react";
@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { StyledGridFavorite } from "../Styled/Grid";
 import { StyledTypographyCart } from "../Styled/Typography";
 import emptyFavorite from "../assets/empty-cart.svg";
+import { StyledButtonHome } from "../Styled/Button";
+import { useNavigate } from "react-router";
 function FavoriteComponent(props) {
   const [favorite, setFavorite] = useState([]);
 
@@ -13,17 +15,22 @@ function FavoriteComponent(props) {
     setFavorite(JSON.parse(localStorage.getItem("Favourite")) || []);
   }, []);
 
-  console.log(favorite);
-  const handleDelete = (id) => {
 
+  const handleDelete = (id) => {
     if (window.confirm("Are you sure to Delete Item ?")) {
       const filterFavorite = setFavorite(favorite.filter((u) => u.id !== id));
       localStorage.setItem("Favourite", JSON.stringify(filterFavorite));
-      if (localStorage.getItem("Favourite") === 'undefined') {
-        localStorage.setItem("Favourite", JSON.stringify([]))
-      };
+      if (localStorage.getItem("Favourite") === "undefined") {
+        localStorage.setItem("Favourite", JSON.stringify([]));
+      }
     }
-  }
+  };
+
+  const nagivate=useNavigate();
+  const handleGoToHome = () => {
+   
+    nagivate('/Home');
+  };
   return (
     <Container>
       {favorite?.length ? (
@@ -67,17 +74,24 @@ function FavoriteComponent(props) {
           );
         })
       ) : (
-        <Box
-          component="img"
-          src={emptyFavorite}
-          height="400px"
-          sx={{
-            display: "block",
-            marginLeft: "auto",
-            marginRight: "auto",
-            width: "50%",
-          }}
-        />
+        <>
+          <Box
+            component="img"
+            src={emptyFavorite}
+            height="400px"
+            sx={{
+              display: "block",
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "50%",
+            }}
+          />
+          <Stack alignItems="center" margin="20px">
+            <StyledButtonHome onClick={handleGoToHome}>
+              Go to Home
+            </StyledButtonHome>
+          </Stack>
+        </>
       )}
     </Container>
   );

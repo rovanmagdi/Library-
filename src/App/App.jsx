@@ -14,23 +14,18 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-      <Router>
-
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound/>} />
-          <Route path="Home" element={<Home />} />
-          <Route path="Books" element={<Books/>} />
-          <Route path="Favorite" element={<Favorite/>} />
-          <Route path="/:id" element={<Details/>} />
-   
-
-
-        </Routes>
-        <Footer/>
-      </Router>
-       
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="Home" element={<Home />} />
+            <Route path="Books" element={<Books />} />
+            <Route path="Favorite" element={<Favorite />} />
+            <Route path="/Details/:id" element={<Details />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </Router>
       </ThemeProvider>
     </>
   );

@@ -9,6 +9,8 @@ import {
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { StyledBoxNotFound } from "../Styled/Box";
+import errorImage from '../assets/error.webp'
+
 const NotFoundComponent = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("976"));
@@ -20,7 +22,7 @@ const NotFoundComponent = () => {
             <Grid item xs={7} >
               <Box
                 component="img"
-                src="https://htmldemo.net/edule/eduLe/assets/images/error.png"
+                src={errorImage}
               />
             </Grid>
             <Grid item xs={5} sx={{ marginTop: "50px" }}>
@@ -58,7 +60,7 @@ const NotFoundComponent = () => {
             <Grid item xs={12}>
               <Box
                 component="img"
-                src="https://htmldemo.net/edule/eduLe/assets/images/error.png"
+                src={errorImage}
                 width="100%"
                 
               />

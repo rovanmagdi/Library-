@@ -1,6 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { StyledNavbar, StyledNavbarResponsive } from "../Styled/Grid";
+import logo from '../assets/logo.webp'
 import { Grid, Link, Container } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -70,7 +71,7 @@ const Navbar = () => {
               <Grid item xs={4} sx={{ fontSize: "22px" }}>
                 <Link
                   component="img"
-                  src="https://htmldemo.net/edule/eduLe/assets/images/logo.png"
+                  src={logo}
                   sx={{ marginLeft: "20px", marginTop: "10px" }}
                 />
               </Grid>
@@ -103,7 +104,7 @@ const Navbar = () => {
             <Grid item xs={8}>
               <Link
                 component="img"
-                src="https://htmldemo.net/edule/eduLe/assets/images/logo.png"
+                src={logo}
                 sx={{ width: "160px", height: "40px" }}
               />
             </Grid>

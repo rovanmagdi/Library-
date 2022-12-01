@@ -2,23 +2,15 @@ import { useEffect, useState } from "react";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-
 import { Container, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import Rating from "@mui/material/Rating";
 import { StyledCardActions, StyledCardBook } from "../Styled/Card";
-// import axios from "axios";
-// import { useNavigate } from "react-router";
-
 import axios from "axios";
 import { StyledTypographyCard, StyledTypographySpan } from "../Styled/Typography";
-
-import PaginationComponent from "./Pagination";
 import CircularIndeterminate from "./Loading";
-import FormSearch from "./FormSearch";
 import { useNavigate } from "react-router";
 
 export default function CardHome() {
@@ -39,16 +31,17 @@ export default function CardHome() {
 
     fetchBooks();
   }, []);
+
+  // slice 4 books 
   useEffect(() => {
     setSliceBook(books.splice(0,4));
   }, [books]);
 
   //nagivate
-
   const nagivate = useNavigate();
   const handleDetails = (id) => {
     console.log(id);
-    nagivate(`/${id}`);
+    nagivate(`/Details/${id}`);
   };
 
   return (
