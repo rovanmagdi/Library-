@@ -37,26 +37,35 @@ Enter this command to run the react app.
 ```bash
  npm start
 ```
-
+## Figma
+https://www.figma.com/file/iQRTujMfNdTK7mXUywk7wG/Liberary?node-id=0%3A1&t=6A3c4F5sTbtEPEW1-0
     
 ## Screenshots
 
-## Welcome Page
-![Screenshot (2)](https://user-images.githubusercontent.com/64366119/198353741-cd4bbe14-56c6-4407-84a6-a12bbfa2218f.png)
-
-## Exam Page
-![Screenshot (38)](https://user-images.githubusercontent.com/64366119/198353869-5e1ea809-e894-4488-b168-bee0040b9e68.png)
-
-## Answer Wrong
-![Screenshot (39)](https://user-images.githubusercontent.com/64366119/198353892-cf85ae48-2339-4ed3-9202-3f821f58c249.png)
-
-## Finish Exam
-![Screenshot (41)](https://user-images.githubusercontent.com/64366119/198353909-ff5e3611-920c-4540-b585-d2eb866d08b8.png)
-
-## Rank of Score
-![Screenshot (42)](https://user-images.githubusercontent.com/64366119/198353922-6f37d8ca-4c87-4e28-87ab-9d64e39f0d99.png)
 
 
+##Home
+![Home (1)](https://user-images.githubusercontent.com/64366119/205358869-35fea5da-08d6-43c3-bca9-858762c9c310.png)
+
+
+## Books
+![Books](https://user-images.githubusercontent.com/64366119/205358910-28a5c1e3-17e5-4ff9-9415-4df09138593f.png)
+
+
+## Favorite
+![Favorite 1](https://user-images.githubusercontent.com/64366119/205357074-7106295d-1ad0-413c-b815-d5b87c6b09fa.png)
+
+## Empty Favorite
+![Favorite empty](https://user-images.githubusercontent.com/64366119/205357047-2fe8c7a7-ca1a-41f7-ae62-e38a2705a532.png)
+
+## Add to Favorite
+![Screenshot (51)](https://user-images.githubusercontent.com/64366119/205354106-6fb3c90c-62f8-4e48-b421-b1064779961d.png)
+
+##Pagination
+![Screenshot (53)](https://user-images.githubusercontent.com/64366119/205354198-6cd5a1fb-5827-40f7-a276-b6f8ff2b282f.png)
+
+##Not Found
+![Not found](https://user-images.githubusercontent.com/64366119/205357058-2cdaa234-d736-408e-ab23-9a8e6de3a9e6.png)
 
 ## Contact us
 
