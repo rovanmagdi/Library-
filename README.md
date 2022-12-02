@@ -37,7 +37,8 @@ Enter this command to run the react app.
 ```bash
  npm start
 ```
-
+## 🔗 Figma
+[![portfolio]([https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white](https://www.figma.com/file/iQRTujMfNdTK7mXUywk7wG/Liberary?node-id=0%3A1&t=6A3c4F5sTbtEPEW1-0))](https://katherinempeterson.com/)
     
 ## Screenshots
 
