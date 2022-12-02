@@ -43,11 +43,14 @@ https://www.figma.com/file/iQRTujMfNdTK7mXUywk7wG/Liberary?node-id=0%3A1&t=6A3c4
 ## Screenshots
 
 
+
 ##Home
-![Home](https://user-images.githubusercontent.com/64366119/205357056-d7411f2d-0f1a-48fd-8a7c-7af943abfe1f.png)
+![Home (1)](https://user-images.githubusercontent.com/64366119/205358869-35fea5da-08d6-43c3-bca9-858762c9c310.png)
+
 
 ## Books
-![Books](https://user-images.githubusercontent.com/64366119/205357064-7f804c64-524f-43b8-9e29-fd190135cf75.png)
+![Books](https://user-images.githubusercontent.com/64366119/205358910-28a5c1e3-17e5-4ff9-9415-4df09138593f.png)
+
 
 ## Favorite
 ![Favorite 1](https://user-images.githubusercontent.com/64366119/205357074-7106295d-1ad0-413c-b815-d5b87c6b09fa.png)
