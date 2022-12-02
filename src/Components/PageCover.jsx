@@ -2,8 +2,6 @@ import React from "react";
 import { Box, Avatar } from "@mui/material";
 import {
   StyledPageCover,
-  StyledCircularBorder,
-  StyledCircularBox,
   CoverTxtBox,
 } from "../Styled/Box";
 import {
@@ -14,7 +12,6 @@ import { Container } from "@mui/system";
 import Line from "../assets/shape-24.webp";
 import Author from "../assets/author-11.webp";
 import Arrow from "../assets/shape-5.webp";
-import Badge from "../assets/badge.png";
 import Line2 from "../assets/shape-23.webp";
 import UnderLine from "../assets/shape-6.webp";
 import DottedShape from "../assets/shape-8.webp";

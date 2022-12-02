@@ -50,12 +50,13 @@ function FavoriteComponent() {
       {favorite?.length ? (
         favorite.map((item, index) => {
           return (
-            <StyledGridFavorite item container xs={12} key={index}  onClick={() => handleDetails(item.id)}>
+            <StyledGridFavorite item container xs={12} key={index}  >
               <Grid item xs={2.4}>
                 <Box
                   component="img"
                   src={`${item.image_url}`}
                   sx={{ width: "50%", margim: "10px" }}
+                  onClick={() => handleDetails(item.id)}
                 />
               </Grid>
               <Grid item xs={8}>

@@ -16,7 +16,6 @@ import {
 import PersonIcon from "@mui/icons-material/Person";
 import TheatersIcon from "@mui/icons-material/Theaters";
 import ListIcon from "@mui/icons-material/List";
-import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import { useTheme } from "@emotion/react";
 import axios from "axios";
 import { useParams } from "react-router";

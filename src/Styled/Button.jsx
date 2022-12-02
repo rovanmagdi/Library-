@@ -41,6 +41,7 @@ export const StyledButtonNotFound = styled(Button)(({ theme }) => ({
   backgroundPosition: 'center center',
   transition: 'all .3s ease-out',
   fontWeight:'bold',
+  margin:"20px",
 
   "&:hover": {
     color:' #fff',
