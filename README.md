@@ -37,9 +37,8 @@ Enter this command to run the react app.
 ```bash
  npm start
 ```
-## 🔗 Figma
-[![figma](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)]([https://twitter.com/](https://www.figma.com/file/iQRTujMfNdTK7mXUywk7wG/Liberary?node-id=0%3A1&t=6A3c4F5sTbtEPEW1-0))
-
+## Figma
+https://www.figma.com/file/iQRTujMfNdTK7mXUywk7wG/Liberary?node-id=0%3A1&t=6A3c4F5sTbtEPEW1-0
     
 ## Screenshots
 
