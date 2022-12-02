@@ -12,22 +12,22 @@ import { Box } from "@mui/material";
 
 function App() {
   return (
-      <ThemeProvider theme={theme}>
-    <Box sx={{display:"flex",flexDirection:"column",justifyContent:'space-between'}}>
-       
-          <Navbar />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="Home" element={<Home />} />
-            <Route path="Books" element={<Books />} />
-            <Route path="Favorite" element={<Favorite />} />
-            <Route path="/Details/:id" element={<Details />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-       
-    </Box>
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ display: "flex", flexDirection: "column",flex:"1 0 auto"}}>
+
+        <Navbar />
+        <Routes >
+          <Route exact path="/" element={<Home />} />
+          <Route path="Home" element={<Home />} />
+          <Route path="Books" element={<Books />} />
+          <Route path="Favorite" element={<Favorite />} />
+          <Route path="/Details/:id" element={<Details />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+
+      </Box>
+    </ThemeProvider>
   );
 }
 

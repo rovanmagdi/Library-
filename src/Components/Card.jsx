@@ -52,7 +52,7 @@ export default function MediaCard() {
   };
 
   return (
-    <Container>
+    <Container sx={{minHeight:'195px'}}>
       <Typography
         sx={{
           paddingLeft: "30px",

@@ -69,7 +69,7 @@ const DetailsComponent = () => {
   var items = [book.Quote1, book.Quote2, book.Quote3];
 
   return (
-    <Container>
+    <Container  sx={{minHeight:'195px'}}>
       <ToastContainer />
       {loading ? (
         <>

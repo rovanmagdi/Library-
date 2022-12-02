@@ -51,7 +51,7 @@ export default function CardHome() {
   };
 
   return (
-    <Container>
+    <Container  sx={{minHeight:'195px'}}>
 
       {!loading ? (
         <>

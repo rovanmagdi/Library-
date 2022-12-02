@@ -7,11 +7,5 @@ export const StyledStackFooter = styled(Stack)(({ theme }) => ({
   backgroundColor: `${theme.palette.primary.dark}`,
   padding:"1rem",
   color:`${ theme.palette.primary.light}`,
-  textAlign: "center",
-
-
-
- 
- 
-
+  textAlign: "center"
 }));

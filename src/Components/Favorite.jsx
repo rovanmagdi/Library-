@@ -45,7 +45,7 @@ function FavoriteComponent() {
 
   }
   return (
-    <Container>
+    <Container  sx={{minHeight:'195px'}}>
       <ToastContainer />
       {favorite?.length ? (
         favorite.map((item, index) => {
