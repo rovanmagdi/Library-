@@ -41,21 +41,10 @@ Enter this command to run the react app.
     
 ## Screenshots
 
-## Welcome Page
-![Screenshot (2)](https://user-images.githubusercontent.com/64366119/198353741-cd4bbe14-56c6-4407-84a6-a12bbfa2218f.png)
-
-## Exam Page
-![Screenshot (38)](https://user-images.githubusercontent.com/64366119/198353869-5e1ea809-e894-4488-b168-bee0040b9e68.png)
-
-## Answer Wrong
-![Screenshot (39)](https://user-images.githubusercontent.com/64366119/198353892-cf85ae48-2339-4ed3-9202-3f821f58c249.png)
-
-## Finish Exam
-![Screenshot (41)](https://user-images.githubusercontent.com/64366119/198353909-ff5e3611-920c-4540-b585-d2eb866d08b8.png)
-
-## Rank of Score
-![Screenshot (42)](https://user-images.githubusercontent.com/64366119/198353922-6f37d8ca-4c87-4e28-87ab-9d64e39f0d99.png)
-
+![Screenshot (52)](https://user-images.githubusercontent.com/64366119/205354089-53f81b65-3707-4cf6-9fad-651f949d1a1d.png)
+![Screenshot (50)](https://user-images.githubusercontent.com/64366119/205354100-d6ee55a3-ec97-4f2d-a064-1c54f6ee5b25.png)
+![Screenshot (51)](https://user-images.githubusercontent.com/64366119/205354106-6fb3c90c-62f8-4e48-b421-b1064779961d.png)
+![Screenshot (53)](https://user-images.githubusercontent.com/64366119/205354198-6cd5a1fb-5827-40f7-a276-b6f8ff2b282f.png)
 
 
 ## Contact us
