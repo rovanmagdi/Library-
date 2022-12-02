@@ -58,7 +58,7 @@ https://www.figma.com/file/iQRTujMfNdTK7mXUywk7wG/Liberary?node-id=0%3A1&t=6A3c4
 ## Empty Favorite
 ![Favorite empty](https://user-images.githubusercontent.com/64366119/205357047-2fe8c7a7-ca1a-41f7-ae62-e38a2705a532.png)
 
-## Details
+## Add to Favorite
 ![Screenshot (51)](https://user-images.githubusercontent.com/64366119/205354106-6fb3c90c-62f8-4e48-b421-b1064779961d.png)
 
 ##Pagination
