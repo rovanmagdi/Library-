@@ -4,7 +4,7 @@ import { useState,useEffect} from "react";
 import { StyledGridFavorite } from "../Styled/Grid";
 import { StyledTypographyCart } from "../Styled/Typography";
 import emptyFavorite from "../assets/empty-cart.svg";
-import { StyledButtonHome } from "../Styled/Button";
+import { StyledButtonNotFound } from "../Styled/Button";
 import { useNavigate } from "react-router";
 
 //Importing from utils 
@@ -37,13 +37,20 @@ function FavoriteComponent() {
   const handleGoToHome = () => {
     nagivate("/Home");
   };
+
+
+  const handleDetails =(id)=>
+  {
+    nagivate(`/Details/${id}`);
+
+  }
   return (
     <Container>
       <ToastContainer />
       {favorite?.length ? (
         favorite.map((item, index) => {
           return (
-            <StyledGridFavorite item container xs={12} key={index}>
+            <StyledGridFavorite item container xs={12} key={index}  onClick={() => handleDetails(item.id)}>
               <Grid item xs={2.4}>
                 <Box
                   component="img"
@@ -63,7 +70,8 @@ function FavoriteComponent() {
                   </Grid>
                   <Grid item xs={3}>
                     <StyledTypographyCart variant="body2">
-                      {item.num_pages}
+                      {item.num_pages} 
+                   <Typography component="span">Pages</Typography>
                     </StyledTypographyCart>
                   </Grid>
                 </Grid>
@@ -94,9 +102,9 @@ function FavoriteComponent() {
             }}
           />
           <Stack alignItems="center" margin="20px">
-            <StyledButtonHome onClick={handleGoToHome}>
+            <StyledButtonNotFound onClick={handleGoToHome}>
               Go to Home
-            </StyledButtonHome>
+            </StyledButtonNotFound>
           </Stack>
         </>
       )}

@@ -21,7 +21,7 @@ import DottedShape from "../assets/shape-8.webp";
 import TxtUnderline from "../assets/shape-6.webp";
 
 export default function PagesCover(props) {
- 
+
   return (
     <>
       <StyledPageCover>
@@ -39,14 +39,17 @@ export default function PagesCover(props) {
         <Avatar
           src={Author}
           sx={{
-            width: { lg: "11%", md: "12%", sm: "12%", xs: "12%" },
-            height: { lg: "33%", md: "30%", sm: "25%", xs: "25%" },
+            width: '9rem',
+
+            height: '9rem',
+
             position: "absolute",
             bottom: "20%",
-            right: "12%",
+            right: "30%",
             zIndex: 1,
           }}
         />
+       
 
         <Box
           component="img"
@@ -69,22 +72,6 @@ export default function PagesCover(props) {
           }}
           src={Arrow}
         />
-        <StyledCircularBorder>
-          <StyledCircularBox>
-            <Box
-              component="img"
-              src={Badge}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "70%",
-                height: "70%",
-              }}
-            ></Box>
-          </StyledCircularBox>
-        </StyledCircularBorder>
 
         <Box
           component="img"
@@ -124,9 +111,9 @@ export default function PagesCover(props) {
         <Container>
           <CoverTxtBox>
             <Box sx={{ position: "relative" }}>
-             
+
               <StyledPageTitle>
-               
+
                 <StyledGreenTxt component={"span"} variant={"body2"}>
                   {props.Word}
                 </StyledGreenTxt>

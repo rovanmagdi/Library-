@@ -1,25 +1,35 @@
-import { Box, Grid, Rating, Stack, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
-import { StyledGridDetails } from "../Styled/Grid";
-import { StyledTypographyDetails } from "../Styled/Typography";
+
+// importing mui used components
+import {
+  Box,
+  Grid,
+  Rating,
+  Stack,
+  Typography,
+  CardActions,
+  IconButton,
+  Divider,
+  useMediaQuery,
+} from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
-import Divider from "@mui/material/Divider";
 import TheatersIcon from "@mui/icons-material/Theaters";
 import ListIcon from "@mui/icons-material/List";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { StyledGridDetails } from "../Styled/Grid";
+
+//Use Carousal MUI
+import Carousel from "react-material-ui-carousel";
+import { StyledTypographyDetails } from "../Styled/Typography";
 import ListDetails from "../Components/ListDetails";
 import { StyledButtonDetails } from "../Styled/Button";
 import CircularIndeterminate from "./Loading";
-import Carousel from "react-material-ui-carousel";
-import { toastSuccess } from "../utils/Toast";
 import { ToastContainer } from "react-toastify";
+import { toastSuccess } from "../utils/Toast";
 const DetailsComponent = () => {
   // use useState to take one book
   const [book, setBook] = useState({});
@@ -142,11 +152,7 @@ const DetailsComponent = () => {
                       nickName="Level"
                       name={book.genres}
                     />
-                    <ListDetails
-                      icon={<LibraryBooksIcon />}
-                      nickName="Language"
-                      name="English"
-                    />
+                   
                     <ListDetails
                       icon={<TheatersIcon />}
                       nickName="Format"
@@ -291,11 +297,7 @@ const DetailsComponent = () => {
                       nickName="Level"
                       name={book.genres}
                     />
-                    <ListDetails
-                      icon={<LibraryBooksIcon />}
-                      nickName="Language"
-                      name="English"
-                    />
+                   
                     <ListDetails
                       icon={<TheatersIcon />}
                       nickName="Certificate"
@@ -361,7 +363,7 @@ const DetailsComponent = () => {
         </>
       ) : (
         <>
-          <CircularIndeterminate/>
+          <CircularIndeterminate />
         </>
       )}
     </Container>

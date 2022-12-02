@@ -53,14 +53,3 @@ export const StyledButtonNotFound = styled(Button)(({ theme }) => ({
   }
 }));
 
-export const StyledButtonHome = styled(Button)(({ theme }) => ({
-  textTransform: "capitalize",
-  border: `1px solid ${theme.palette.primary.main}`,
-  height: "40px",
-  margin: "10px",
-  padding: "0px 20px 0px 20px",
-  backgroundColor: ` ${theme.palette.primary.light}`,
-  fontWeight:"bold",
-
-  
-}));

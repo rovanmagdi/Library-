@@ -38,9 +38,9 @@ export default function CardHome() {
 
   }, []);
 
-  // slice 4 books 
+  // slice 3 books 
   useEffect(() => {
-    setSliceBook(books.splice(0, 4));
+    setSliceBook(books.splice(0, 3));
   }, [books]);
 
   //nagivate

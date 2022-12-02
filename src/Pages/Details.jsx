@@ -4,7 +4,7 @@ import PagesCover from "../Components/PageCover";
 const Details = () => {
   return (
     <>
-      <PagesCover Word="Favorite" />
+      <PagesCover Word="Details" />
       <DetailsComponent />
     </>
   );
